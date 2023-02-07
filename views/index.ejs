@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>test</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row my-5">
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="mb-1" for="input-angka">Input Angka</label>
+                            <input type="text" class="form-control" id="input-angka" placeholder="Eg. 10923" maxlength="7">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary mx-2" id="submit">
+                                Generate Segitiga
+                            </button>
+                        <button type="button" class="btn btn-dark mx-2" id="submit-ganjil">
+                                Generate Bilanagan Ganjil
+                            </button>
+                        <button type="button" class="btn btn-danger mx-2" id="submit-prima">
+                                Generate Bilanagan Prima
+                            </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header-result card-header">
+                        <b>Hasil</b>
+                    </div>
+                    <div class="result card-body">
+                        <h6 class="text-danger">Silahkan masukan angka terlebih dulu</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const getResult = function(input, type) {
+                if (input && type) {
+                    $.ajax({
+                        url: "get-result",
+                        type: "POST",
+                        data: `angka=${input}&type=${type}`,
+                        success: function(res) {
+                            if (res.data) {
+                                const data = res.data.replaceAll("\n", "<br>")
+                                $(".result").html(data);
+                            } else {
+                                alert(res.message)
+                            }
+                        }
+                    })
+                }
+            }
+
+            $("#submit").click(function() {
+                const input = $("#input-angka").val()
+                $(".header-result").html(`
+                    <b>Hasil Segitiga Dari ${input}</b>
+                `)
+                getResult(input, "biasa");
+            })
+
+            $("#submit-ganjil").click(function() {
+                const input = $("#input-angka").val()
+                $(".header-result").html(`
+                    <b>Hasil Bilangan Ganjil Dari ${input}</b>
+                `)
+                getResult(input, "ganjil");
+            })
+
+            $("#submit-prima").click(function() {
+                const input = $("#input-angka").val()
+                $(".header-result").html(`
+                    <b>Hasil Bilangan Prima Dari ${input}</b>
+                `)
+                getResult(input, "prima");
+            })
+
+
+
+        })
+    </script>
+</body>
+
+</html>
