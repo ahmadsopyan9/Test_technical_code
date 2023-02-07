@@ -3,10 +3,10 @@ test
 Menggunakan Kloning--
 
 ```sh
-$ git clone https://github.com/ahmadsopyan9/test.git
+$ git clone https://github.com/ahmadsopyan9/Test_technical_code.git
 ```
 
-Atau Unduh zip [Klik Disini](https://github.com/ahmadsopyan9/test/archive/refs/heads/main.zip)
+Atau Unduh zip [Klik Disini](https://github.com/ahmadsopyan9/Test_technical_code/archive/refs/heads/main.zip)
 
 ```sh
 $ cd test
