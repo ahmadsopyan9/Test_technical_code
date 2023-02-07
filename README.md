@@ -6,7 +6,7 @@ Menggunakan Kloning--
 $ git clone https://github.com/ahmadsopyan9/test.git
 ```
 
-Atau Unduh zip [DownloadHere](https://github.com/ahmadsopyan9/test/archive/refs/heads/main.zip)
+Atau Unduh zip [Klik Disini](https://github.com/ahmadsopyan9/test/archive/refs/heads/main.zip)
 
 ```sh
 $ cd test
@@ -15,7 +15,7 @@ $ npm start
 ```
 
 [!Finished]
-open your server address in your preferred browser
+buka alamat server Anda di browser pilihan Anda
 
 ```sh
 http://localhost:3000/
